@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sbWuyulunbi", "sbWuyulunbi\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "goubi", "goubi\goubi.csproj", "{DF1BB52E-6E03-41DD-92F4-65B77BE06FA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksApi", "BooksApi\BooksApi.csproj", "{17BED6F6-5201-4E4D-AE71-5A5ACD9DFBC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksApi", "BooksApi\BooksApi.csproj", "{17BED6F6-5201-4E4D-AE71-5A5ACD9DFBC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRChat", "SignalRChat\SignalRChat.csproj", "{EEB7C96D-1DEC-43E7-98C8-E1C7861F323E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{17BED6F6-5201-4E4D-AE71-5A5ACD9DFBC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17BED6F6-5201-4E4D-AE71-5A5ACD9DFBC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17BED6F6-5201-4E4D-AE71-5A5ACD9DFBC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEB7C96D-1DEC-43E7-98C8-E1C7861F323E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEB7C96D-1DEC-43E7-98C8-E1C7861F323E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEB7C96D-1DEC-43E7-98C8-E1C7861F323E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEB7C96D-1DEC-43E7-98C8-E1C7861F323E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
