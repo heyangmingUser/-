@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksApi", "BooksApi\BooksA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRChat", "SignalRChat\SignalRChat.csproj", "{EEB7C96D-1DEC-43E7-98C8-E1C7861F323E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoUniversity", "ContosoUniversity\ContosoUniversity.csproj", "{2DB5E459-FEE3-40DE-93B3-4655E2AD3832}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{EEB7C96D-1DEC-43E7-98C8-E1C7861F323E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEB7C96D-1DEC-43E7-98C8-E1C7861F323E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEB7C96D-1DEC-43E7-98C8-E1C7861F323E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DB5E459-FEE3-40DE-93B3-4655E2AD3832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DB5E459-FEE3-40DE-93B3-4655E2AD3832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DB5E459-FEE3-40DE-93B3-4655E2AD3832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DB5E459-FEE3-40DE-93B3-4655E2AD3832}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
