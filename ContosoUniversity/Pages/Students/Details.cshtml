@@ -29,6 +29,30 @@
         <dd>
             @Html.DisplayFor(model => model.Student.EnrollmentDate)
         </dd>
+        @*添加登记导航属性*@
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.Enrollments)
+        </dt>
+        @*表中表*@
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Course Title</th>
+                    <th>Grade</th>
+                </tr>
+                @foreach (var item in Model.Student.Enrollments)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Course.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Grade)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
     </dl>
 </div>
 <div>
