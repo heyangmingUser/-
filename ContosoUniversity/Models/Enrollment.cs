@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,7 +20,7 @@ namespace ContosoUniversity.Models
         public int StudentID { get; set; }
         public Student Student { get; set; }
 
-
+        [DisplayFormat(NullDisplayText = "No grade")]
         public Grade? Grade { get; set; }
     }
 
