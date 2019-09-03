@@ -37,5 +37,32 @@ namespace ContosoUniversity.Models
         }
 
         public ICollection<Enrollment> Enrollments { get; set; }
+
+        /// <summary>
+        /// 额外属性one
+        /// </summary>
+        public string ExtraOne { get; set; }
+
+        /// <summary>
+        /// 额外字段Two
+        /// </summary>
+        internal string ExtraTwo;
+
+        /// <summary>
+        /// 额外属性Three
+        /// </summary>
+        public string ExtraThree {
+            get
+            {
+                return ExtraTwo;
+            }
+            set
+            {
+                ExtraTwo = value;
+            }
+        }
+
+
+
     }
 }
