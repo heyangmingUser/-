@@ -34,8 +34,8 @@ namespace ContoSoEFAndMVC.Data
             modelBuilder.Entity<OfficeAssignment>().ToTable("OfficeAssignment");
             modelBuilder.Entity<CourseAssignment>().ToTable("CourseAssignment");
 
-            modelBuilder.Entity<CourseAssignment>()
-                .HasKey(c => new { c.CourseID, c.InstructorID });
+            modelBuilder.Entity<CourseAssignment>() .HasKey(c => new { c.CourseID, c.InstructorID });
+            modelBuilder.Entity<Department>().Property(p => p.RowVersion).IsConcurrencyToken();
         }
     }
 }
