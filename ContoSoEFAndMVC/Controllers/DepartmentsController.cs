@@ -33,11 +33,12 @@ namespace ContoSoEFAndMVC.Controllers
             {
                 return NotFound();
             }
-
+            string query = "SELECT * FROM Department WHERE DepartmentID={0}";
             var department = await _context.Departments
+                .FromSql(query,id)
                 .Include(d => d.Administrator)
                 .AsNoTracking()
-                .FirstOrDefaultAsync(m => m.DepartmentID == id);
+                .FirstOrDefaultAsync();
             if (department == null)
             {
                 return NotFound();

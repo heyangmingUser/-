@@ -8,6 +8,7 @@ using ContoSoEFAndMVC.Models;
 using ContoSoEFAndMVC.Data;
 using ContoSoEFAndMVC.Models.SchoolViewModels;
 using Microsoft.EntityFrameworkCore;
+using System.Data.Common;
 
 namespace ContoSoEFAndMVC.Controllers
 {
@@ -38,15 +39,50 @@ namespace ContoSoEFAndMVC.Controllers
 
         public async Task<ActionResult> About()
         {
-            IQueryable<EnrollmentDateGroup> data =
-                from student in _context.Students
-                group student by student.EnrollmentDate into dateGroup
-                select new EnrollmentDateGroup()
+            //IQueryable<EnrollmentDateGroup> data =
+            //    from student in _context.Students
+            //    group student by student.EnrollmentDate into dateGroup
+            //    select new EnrollmentDateGroup()
+            //    {
+            //        EnrollmentDate = dateGroup.Key,
+            //        StudentCount = dateGroup.Count()
+            //    };
+            //return View(await data.AsNoTracking().ToListAsync());
+            List<EnrollmentDateGroup> groups = new List<EnrollmentDateGroup>();
+            //获取连接
+            var conn = _context.Database.GetDbConnection();
+            //打开连接
+            await conn.OpenAsync();
+
+            try
+            {
+                using (var command=conn.CreateCommand())
                 {
-                    EnrollmentDate = dateGroup.Key,
-                    StudentCount = dateGroup.Count()
-                };
-            return View(await data.AsNoTracking().ToListAsync());
+                    string query = "SELECT EnrollmentDate, COUNT(*) AS StudentCount "
+                                    + "FROM Person "
+                                    + "WHERE Discriminator = 'Student' "
+                                    + "GROUP BY EnrollmentDate";
+                    //获取对数据源要运行的数据或者文本
+                    command.CommandText = query;
+                    //执行读数据的命令
+                    DbDataReader reader = await command.ExecuteReaderAsync();
+                    //开始读数据
+                    if (reader.HasRows)
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var row = new EnrollmentDateGroup { EnrollmentDate = reader.GetDateTime(0), StudentCount = reader.GetInt32(1) };
+                            groups.Add(row);
+                        }
+                    }
+                    reader.Dispose();
+                }
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return View(groups);
         }
     }
 }
