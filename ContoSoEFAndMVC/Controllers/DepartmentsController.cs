@@ -127,8 +127,11 @@ namespace ContoSoEFAndMVC.Controllers
                 }
                 catch (DbUpdateConcurrencyException ex)
                 {
+                    //异常条目
                     var exceptionEntry = ex.Entries.Single();
+                    //获取此项跟踪的实体，也就是此时编辑的实体
                     var clientValues = (Department)exceptionEntry.Entity;
+                    //获取跟踪实体的值的副本存在于数据库中，若在数据库中没有找到该实体，则为空，指数据库中的实体
                     var databaseEntry = exceptionEntry.GetDatabaseValues();
                     if (databaseEntry == null)
                     {
@@ -137,6 +140,7 @@ namespace ContoSoEFAndMVC.Controllers
                     }
                     else
                     {
+                        //创建实体类型的实例并使用此对象的值
                         var databaseValues = (Department)databaseEntry.ToObject();
 
                         if (databaseValues.Name != clientValues.Name)
